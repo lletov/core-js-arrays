@@ -332,15 +332,7 @@ function selectMany(arr, childrenSelector) {
  *   calculateBalance([]) => 0
  */
 function calculateBalance(arr) {
-  if (!Array.isArray(arr)) {
-    throw new TypeError('Input must be an array');
-  }
-
   return arr.reduce((balance, [income, expense]) => {
-    if (typeof income !== 'number' || typeof expense !== 'number') {
-      throw new TypeError('Each income and expense must be a number');
-    }
-
     return balance + (income - expense);
   }, 0);
 }
@@ -374,7 +366,12 @@ function createChunks(/* arr, chunkSize */) {
  *    generateOdds(5) => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  return Array.from({ len }, (_, i) => 2 * i + 1);
+  const odds = [];
+  for (let i = 0; i < len; i += 1) {
+    odds.push(2 * i + 1); // Generate odd numbers: 1, 3, 5, 7, ...
+  }
+
+  return odds;
 }
 
 /**
