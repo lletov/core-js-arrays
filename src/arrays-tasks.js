@@ -180,9 +180,16 @@ function isValueEqualsIndex(arr) {
  *    insertItem([ 1, 'b', 'c'], 'x', 0) => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-  const result = [...arr];
-  result.splice(index, 0, item);
-  return result;
+  if (!Array.isArray(arr)) {
+    throw new TypeError('First argument must be an array');
+  }
+
+  if (typeof index !== 'number' || index < 0 || index > arr.length) {
+    throw new RangeError('Index must be a valid number within array bounds');
+  }
+
+  // Use splice directly on the input array
+  arr.splice(index, 0, item);
 }
 
 /**
