@@ -368,7 +368,7 @@ function createChunks(/* arr, chunkSize */) {
 function generateOdds(len) {
   const odds = [];
   for (let i = 0; i < len; i += 1) {
-    odds.push(2 * i + 1); // Generate odd numbers: 1, 3, 5, 7, ...
+    odds.push(2 * i + 1);
   }
 
   return odds;
